@@ -1,7 +1,7 @@
 FROM gradle:7.6-jdk17 AS build
 WORKDIR /app
 COPY . .
-RUN gradle clean build
+RUN gradle clean build --warning-mode=all
 
 FROM openjdk:17-ea-4-jdk-slim
 WORKDIR /app
