@@ -1,16 +1,13 @@
 package com.nakarmi.mcq.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 @Data
 @Document("messages")
@@ -21,6 +18,5 @@ public class MessageDocument {
     private String message;
     private String email;
     @CreatedDate
-    private LocalDateTime createdDate;
-
+    private LocalDateTime createdDate = ZonedDateTime.now(ZoneId.of("Asia/Kathmandu")).toLocalDateTime();
 }
